@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DengKur African Crafts</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Paystack Payment Script -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+<img src="dengkurlogo.jpg" alt="DengKur Logo" class="hero-logo">
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#featured">Featured</a>
+<a href="#shop">Shop</a>
+<a href="#artisans">Artisans</a>
+<a href="#about">About</a>
+</nav>
+
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="Search products...">
+
+<select id="categoryFilter">
+<option value="all">All</option>
+<option value="beads">Beads</option>
+<option value="fabrics">Fabrics</option>
+</select>
+</div>
+
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section id="home" class="hero">
+
+<img src="dengkurlogo.jpg" class="logo">
+
+<div class="hero-content">
+
+<h1>Discover Authentic African Crafts</h1>
+
+<p>
+DengKur connects talented African artisans with buyers across the world.
+Every craft reflects culture, tradition, and creativity.
+</p>
+
+<a href="#shop" class="shop-btn">Shop Now</a>
+
+</div>
+
+</section>
+
+
+<!-- CART -->
+<div class="cart">
+
+<h3>My Cart</h3>
+
+<ul id="cart-items"></ul>
+
+<p>Total: $<span id="total">0</span></p>
+
+<button onclick="checkout()">Checkout</button>
+<button onclick="closeCart()">Close</button>
+
+</div>
+
+
+<section id="featured" class="products">
+
+<h2>Featured Products</h2>
+
+<div class="product-grid">
+
+<!-- Maasai Necklace -->
+
+<div class="product-card">
+
+<img src="necklace.jpg" alt="Maasai Necklace">
+
+<div class="product-info">
+
+<h3>Maasai Beaded Necklace</h3>
+
+<p class="price">$25</p>
+
+<button onclick="addToCart(25, 'Maasai Necklace')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+
+<!-- Handwoven Basket -->
+
+<div class="product-card">
+
+<img src="basket.jpg" alt="African Basket">
+
+<div class="product-info">
+
+<h3>Handwoven Basket</h3>
+
+<p class="price">$35</p>
+
+<button onclick="addToCart(35, 'Handwoven Basket')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+
+<!-- Wood Carving -->
+
+<div class="product-card">
+
+<img src="elephant.jpg" alt="Wood Carving">
+
+<div class="product-info">
+
+<h3>Hand Carved Elephant</h3>
+
+<p class="price">$40</p>
+
+<button onclick="addToCart(40, 'Wood Carving')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+
+<!-- African Fabric (NEW) -->
+
+<div class="product-card">
+
+<img src="africanfabrics.jpg" alt="African Fabric">
+
+<div class="product-info">
+
+<h3>African Ankara Fabric</h3>
+
+<p class="price">$30</p>
+
+<button onclick="addToCart(30, 'African Fabric')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SHOP SECTION -->
+
+<section id="shop" class="products">
+
+<h2>Shop All Crafts</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+
+<img src="bag.jpg">
+
+<div class="product-info">
+
+<h3>Kitenge Bag</h3>
+
+<p class="price">$50</p>
+
+<button onclick="addToCart(50, 'Kitenge Bag')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="bracelet.jpg">
+
+<div class="product-info">
+
+<h3>African Beaded Bracelet</h3>
+
+<p class="price">$20</p>
+
+<button onclick="addToCart(20, 'African Beaded Bracelet')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="mask.jpg">
+
+<div class="product-info">
+
+<h3>Traditional African Mask</h3>
+
+<p class="price">$60</p>
+
+<button onclick="addToCart(60, 'African Mask')">Add to Cart</button>
+
+<div class="rating">⭐⭐⭐⭐☆</div>
+<p class="review">Beautiful handmade craft!</p>
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+<section id="artisans" class="artisans">
+
+<h2>Meet Our Artisans</h2>
+
+<p class="artisan-intro">
+DengKur proudly supports talented African artisans who create authentic handmade crafts.
+Each artisan brings generations of cultural knowledge, creativity, and craftsmanship
+to every product they make.
+</p>
+
+<div class="artisan-grid">
+
+<!-- Artisan 1 -->
+
+<div class="artisan-card">
+
+<img src="artisan1.jpg" alt="Artisan">
+
+<h3>Bol Kun Tut Nyang</h3>
+
+<p>
+Bol is a South Sudanese woodcarver from Akobo/Jonglei State who has been crafting traditional
+African sculptures for over 20 years. His carvings reflect wildlife,
+culture, and African storytelling.
+</p>
+
+</div>
+
+
+<!-- Artisan 2 -->
+
+<div class="artisan-card">
+
+<img src="artisan2.jpg" alt="Artisan">
+
+<h3>Nyajuok Deng Gabriel Gany</h3>
+
+<p>
+Nyajuok specializes in Maasai beadwork and jewelry. Her colorful necklaces
+and bracelets celebrate East African traditions and empower women
+in her community.
+</p>
+
+</div>
+
+
+<!-- Artisan 3 -->
+
+<div class="artisan-card">
+
+<img src="artisan3.jpg" alt="Artisan">
+
+<h3>Deng Lual Mabor Tut</h3>
+
+<p>
+Deng is an Ethiopian master basket weaver from Addis Ababa. Using natural fibers and
+traditional weaving techniques, he creates beautiful handmade baskets
+used in homes around the world.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about" class="about">
+
+<h2>About DengKur</h2>
+
+<div class="about-container">
+
+<div class="about-text">
+
+<p>
+DengKur is an online marketplace dedicated to connecting talented African artisans
+with customers across the globe. Our platform celebrates the richness of African
+culture through handmade crafts that tell stories of tradition, creativity, and heritage.
+</p>
+
+<p>
+We work directly with local artisans to ensure fair trade, sustainability, and
+authenticity in every product. From handwoven baskets to vibrant Ankara fabrics,
+each item on DengKur is crafted with passion and skill.
+</p>
+
+<p>
+Our mission is to empower African creators by giving them a global platform
+to showcase their work, earn sustainable income, and preserve cultural traditions.
+</p>
+
+</div>
+
+<div class="about-image">
+<img src="about.jpg" alt="African Crafts">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 DengKur. All Rights Reserved.</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+<!-- PAYMENT SUCCESS SECTION -->
+<section id="payment-success" style="display:none;">
+  <div style="
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f4f4f4;
+  ">
+    <div style="
+      background:#fff;
+      padding:40px;
+      border-radius:10px;
+      text-align:center;
+      max-width:400px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    ">
+      <div style="font-size:60px;color:#28a745;">✅</div>
+      <h1>Payment Successful</h1>
+      <p>
+        Thank you for shopping with <strong>DengKur</strong>.<br>
+        Your order has been received and is being processed.
+      </p>
+      <button onclick="goHome()" style="
+        padding:12px 25px;
+        background:#000;
+        color:#fff;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+      ">
+        Back to Home
+      </button>
+    </div>
+  </div>
+</section>
+
+</body>
+
+</html>
